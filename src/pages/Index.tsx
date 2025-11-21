@@ -127,67 +127,97 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <Icon name="FileText" className="text-white" size={24} />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold text-slate-900">База документов</h1>
-                <p className="text-sm text-slate-500">GORKYCODE 2025</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm">
-                <Icon name="HelpCircle" size={16} className="mr-2" />
-                Помощь
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8 space-y-8">
+      <main className="container mx-auto px-4 py-12 space-y-12">
         <section className="text-center space-y-4 py-8">
-          <h2 className="text-4xl font-bold text-slate-900">
-            Интеллектуальная система работы с документами
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Создавайте корректные документы быстрее с помощью единой базы знаний и проверки на соответствие нормам
+          <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Icon name="FileText" className="text-white" size={32} />
+          </div>
+          <h1 className="text-5xl font-bold text-slate-900">
+            База документов GORKYCODE
+          </h1>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Интеллектуальная система работы с документами администрации города
           </p>
         </section>
 
-        <Tabs defaultValue="create" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 max-w-3xl mx-auto">
-            <TabsTrigger value="create">
-              <Icon name="FilePlus" size={16} className="mr-2" />
-              Создать отчёт
-            </TabsTrigger>
-            <TabsTrigger value="reports">
-              <Icon name="FolderOpen" size={16} className="mr-2" />
-              Готовые отчёты
-            </TabsTrigger>
-            <TabsTrigger value="documents">
-              <Icon name="Search" size={16} className="mr-2" />
-              Поиск документов
-            </TabsTrigger>
-            <TabsTrigger value="examples">
-              <Icon name="BookOpen" size={16} className="mr-2" />
-              Примеры
-            </TabsTrigger>
-            <TabsTrigger value="themes">
-              <Icon name="FolderTree" size={16} className="mr-2" />
-              По темам
-            </TabsTrigger>
-          </TabsList>
+        <Tabs defaultValue="create" className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <TabsList className="h-auto bg-transparent space-y-0 flex-col p-0 col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <TabsTrigger 
+                value="create" 
+                className="h-auto p-0 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              >
+                <Card className="w-full hover:shadow-xl transition-all cursor-pointer border-2 data-[state=active]:border-sky-500 group">
+                  <CardContent className="pt-8 pb-8 text-center space-y-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                      <Icon name="FilePlus" className="text-white" size={32} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-900 mb-2">Создать отчёт</h3>
+                      <p className="text-sm text-slate-600">Генерация документа с проверкой НПА</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsTrigger>
 
-          <TabsContent value="create" className="space-y-6">
-            <Card className="max-w-3xl mx-auto">
-              <CardHeader>
-                <CardTitle>Создать новый отчёт</CardTitle>
-                <CardDescription>
+              <TabsTrigger 
+                value="reports" 
+                className="h-auto p-0 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              >
+                <Card className="w-full hover:shadow-xl transition-all cursor-pointer border-2 data-[state=active]:border-emerald-500 group">
+                  <CardContent className="pt-8 pb-8 text-center space-y-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                      <Icon name="FolderOpen" className="text-white" size={32} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-900 mb-2">Готовые отчёты</h3>
+                      <p className="text-sm text-slate-600">База проверенных документов</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsTrigger>
+
+              <TabsTrigger 
+                value="documents" 
+                className="h-auto p-0 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              >
+                <Card className="w-full hover:shadow-xl transition-all cursor-pointer border-2 data-[state=active]:border-violet-500 group">
+                  <CardContent className="pt-8 pb-8 text-center space-y-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                      <Icon name="Search" className="text-white" size={32} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-900 mb-2">Поиск документов</h3>
+                      <p className="text-sm text-slate-600">ОДА, СЭДО, Консультант+</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsTrigger>
+
+              <TabsTrigger 
+                value="examples" 
+                className="h-auto p-0 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              >
+                <Card className="w-full hover:shadow-xl transition-all cursor-pointer border-2 data-[state=active]:border-amber-500 group">
+                  <CardContent className="pt-8 pb-8 text-center space-y-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                      <Icon name="BookOpen" className="text-white" size={32} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-900 mb-2">Примеры отчётов</h3>
+                      <p className="text-sm text-slate-600">Шаблоны и образцы</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsTrigger>
+            </TabsList>
+          </div>
+
+          <TabsContent value="create" className="space-y-6 animate-fade-in">
+            <Card className="max-w-4xl mx-auto">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Создать новый отчёт</CardTitle>
+                <CardDescription className="text-base">
                   Выберите тип документа и тему для автоматической генерации корректного отчёта
                 </CardDescription>
               </CardHeader>
@@ -195,7 +225,7 @@ const Index = () => {
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-slate-700">Тип документа</label>
                   <Select value={selectedDocType} onValueChange={setSelectedDocType}>
-                    <SelectTrigger>
+                    <SelectTrigger className="h-12">
                       <SelectValue placeholder="Выберите тип документа" />
                     </SelectTrigger>
                     <SelectContent>
@@ -215,23 +245,23 @@ const Index = () => {
                   <label className="text-sm font-medium text-slate-700">Тема отчёта</label>
                   <Input 
                     placeholder="Например: Развитие транспортной инфраструктуры в 2025 году" 
-                    className="text-base"
+                    className="text-base h-12"
                   />
                 </div>
 
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-slate-700">Дополнительные параметры</label>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="cursor-pointer hover:bg-slate-100">
-                      <Icon name="Link" size={12} className="mr-1" />
+                    <Badge variant="outline" className="cursor-pointer hover:bg-sky-100 hover:border-sky-500 transition-colors py-2 px-3">
+                      <Icon name="Link" size={14} className="mr-1" />
                       Проверить ссылки на НПА
                     </Badge>
-                    <Badge variant="outline" className="cursor-pointer hover:bg-slate-100">
-                      <Icon name="AlertTriangle" size={12} className="mr-1" />
+                    <Badge variant="outline" className="cursor-pointer hover:bg-sky-100 hover:border-sky-500 transition-colors py-2 px-3">
+                      <Icon name="AlertTriangle" size={14} className="mr-1" />
                       Найти противоречия
                     </Badge>
-                    <Badge variant="outline" className="cursor-pointer hover:bg-slate-100">
-                      <Icon name="FileSearch" size={12} className="mr-1" />
+                    <Badge variant="outline" className="cursor-pointer hover:bg-sky-100 hover:border-sky-500 transition-colors py-2 px-3">
+                      <Icon name="FileSearch" size={14} className="mr-1" />
                       Использовать примеры
                     </Badge>
                   </div>
@@ -243,34 +273,19 @@ const Index = () => {
                 </Button>
               </CardContent>
             </Card>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              {documentTypes.slice(0, 3).map(type => (
-                <Card key={type.id} className="hover:shadow-md transition-shadow cursor-pointer">
-                  <CardContent className="pt-6">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center">
-                        <Icon name={type.icon as any} className="text-sky-600" size={24} />
-                      </div>
-                      <h3 className="font-medium text-sm">{type.name}</h3>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </TabsContent>
 
-          <TabsContent value="reports" className="space-y-6">
-            <Card>
+          <TabsContent value="reports" className="space-y-6 animate-fade-in">
+            <Card className="max-w-6xl mx-auto">
               <CardHeader>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
-                    <CardTitle>Готовые отчёты</CardTitle>
-                    <CardDescription>База проверенных документов с возможностью использования как шаблонов</CardDescription>
+                    <CardTitle className="text-2xl">Готовые отчёты</CardTitle>
+                    <CardDescription className="text-base">База проверенных документов с возможностью использования как шаблонов</CardDescription>
                   </div>
                   <div className="flex items-center gap-3">
                     <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                      <SelectTrigger className="w-48">
+                      <SelectTrigger className="w-48 h-11">
                         <SelectValue placeholder="Все категории" />
                       </SelectTrigger>
                       <SelectContent>
@@ -285,7 +300,7 @@ const Index = () => {
                       placeholder="Поиск по отчётам..." 
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-64"
+                      className="w-64 h-11"
                     />
                   </div>
                 </div>
@@ -351,11 +366,11 @@ const Index = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="documents" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Поиск по базе документов</CardTitle>
-                <CardDescription>
+          <TabsContent value="documents" className="space-y-6 animate-fade-in">
+            <Card className="max-w-6xl mx-auto">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Поиск по базе документов</CardTitle>
+                <CardDescription className="text-base">
                   Найдите релевантные документы для вашей задачи среди тысяч записей из ОДА, СЭДО, Консультант+
                 </CardDescription>
               </CardHeader>
@@ -394,11 +409,11 @@ const Index = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="examples" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Примеры готовых отчётов</CardTitle>
-                <CardDescription>
+          <TabsContent value="examples" className="space-y-6 animate-fade-in">
+            <Card className="max-w-6xl mx-auto">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Примеры готовых отчётов</CardTitle>
+                <CardDescription className="text-base">
                   Образцы документов с корректной структурой и ссылками на законодательство
                 </CardDescription>
               </CardHeader>
@@ -436,75 +451,7 @@ const Index = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="themes" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Документы по темам</CardTitle>
-                <CardDescription>
-                  Структурированная база документов по основным направлениям деятельности администрации
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {thematicDocs.map((theme, index) => (
-                    <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer group">
-                      <CardContent className="pt-6">
-                        <div className="space-y-4">
-                          <div className="flex items-start justify-between">
-                            <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg flex items-center justify-center">
-                              <Icon name={theme.icon as any} className="text-white" size={20} />
-                            </div>
-                            <Badge variant="secondary">{theme.count}</Badge>
-                          </div>
-                          <div className="space-y-2">
-                            <h3 className="font-semibold text-slate-900 group-hover:text-sky-600 transition-colors">
-                              {theme.category}
-                            </h3>
-                            <p className="text-xs text-slate-500 flex items-center gap-1">
-                              <Icon name="Clock" size={12} />
-                              Обновлено {theme.updated}
-                            </p>
-                          </div>
-                          <Button variant="outline" size="sm" className="w-full">
-                            <Icon name="FolderOpen" size={14} className="mr-2" />
-                            Открыть раздел
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
         </Tabs>
-
-        <section className="bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl p-8 text-white">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
-              <Icon name="Sparkles" size={32} />
-            </div>
-            <h2 className="text-3xl font-bold">Умная проверка документов</h2>
-            <p className="text-sky-50 text-lg">
-              Система автоматически проверяет корректность ссылок на законодательство, 
-              выявляет противоречия между документами и предлагает актуальные формулировки
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
-              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg">
-                <Icon name="CheckCircle" size={20} />
-                <span>Проверка НПА</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg">
-                <Icon name="AlertTriangle" size={20} />
-                <span>Поиск противоречий</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg">
-                <Icon name="TrendingUp" size={20} />
-                <span>Актуальность норм</span>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="border-t bg-white py-6 mt-12">
